@@ -10,6 +10,7 @@
   "dependencies": {
     "bulma": "^0.9.1",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.20",
     "tone": "^14.7.58",
     "vue": "^2.6.11",
     "vue-circle-slider": "github:gauthammk/vue-circle-slider"

@@ -14,19 +14,25 @@
     <div class="key-container" v-for="key in keys" :key="key.id">
       <Key v-bind:pianoKey="key" v-on:key-click-event="handleKeyClick" />
     </div>
+    <!-- Display MoodSelector -->
+    <MoodSelector v-on:mood-click-event="handleMoodSelection" />
+    <!-- Display generated progression by sending the progression as a prop to the component -->
+    <ProgressionDisplay v-bind:progression="progression" />
   </div>
 </template>
 
 <script>
 import Key from "./Key";
-import Controls from "./Controls";
+import MoodSelector from "./MoodSelector";
 import * as Tone from "tone";
+import Controls from "./Controls";
+import ProgressionDisplay from "./ProgressionDisplay";
+// import { cloneDeep } from "lodash";
 
 export default {
   name: "Piano",
-  components: { Key, Controls },
+  components: { Key, Controls, MoodSelector, ProgressionDisplay },
   data: () => ({
-    customAttack: 0.1,
     synth: new Tone.Synth({
       oscillator: {
         type: "sine",
@@ -45,6 +51,7 @@ export default {
         release: 0.1,
       },
     }),
+    progression: null,
     keys: [
       {
         id: 1,
@@ -124,7 +131,7 @@ export default {
     // listen for keypresses and play the corresponding sounds
     window.addEventListener("keydown", (event) => {
       if (event.defaultPrevented) {
-        // Do nothing if the event was already processed
+        // do nothing if the event was already processed
         return;
       }
 
@@ -145,7 +152,7 @@ export default {
         console.log(err);
       }
 
-      // Cancel the default action to avoid it being handled twice
+      // cancel the default action to avoid it being handled twice
       event.preventDefault();
     });
   },
@@ -158,12 +165,12 @@ export default {
     handleOscillatorClick(newOscillator) {
       // change the oscillator on click to the new oscillator
       this.synth.oscillator.type = newOscillator;
+
+      // force update to reflect changes
       this.$forceUpdate();
     },
     handleAttackChange(customAttack) {
       this.synth.envelope.attack = customAttack / 100;
-
-      // force update to reflect changes
       this.$forceUpdate();
     },
     handleSustainChange(customSustain) {
@@ -177,6 +184,112 @@ export default {
     handleReleaseChange(customRelease) {
       this.synth.envelope.release = customRelease / 100;
       this.$forceUpdate();
+    },
+    handleMoodSelection(mood) {
+      console.log(mood);
+      var baseURL =
+        "https://cors-anywhere.herokuapp.com/https://chord-progression-generator.herokuapp.com/api/filter?";
+
+      // assign valence and energy to moods
+      var valence = 0,
+        energy = 0;
+      if (mood === "happy") {
+        valence = 0.6;
+        energy = 0.8;
+      } else if (mood === "calm") {
+        valence = 0.6;
+        energy = 0.5;
+      } else if (mood === "anxious") {
+        valence = 0.4;
+        energy = 0.7;
+      } else {
+        valence = 0.3;
+        energy = 0.5;
+      }
+
+      // new enpoint with valence and energy
+      const modifiedURL = baseURL + "valence=" + valence + "&energy=" + energy;
+
+      // method to generate a chord array from the number notation in a key
+      function generateChordArray(number) {
+        var chordArray = [];
+        switch (number) {
+          case "1":
+            chordArray = ["C4", "E4", "A4"];
+            break;
+          case "2":
+            chordArray = ["D4", "F4", "A4"];
+            break;
+          case "3":
+            chordArray = ["E4", "G4", "B4"];
+            break;
+          case "4":
+            chordArray = ["F4", "A5", "C5"];
+            break;
+          case "5":
+            chordArray = ["G4", "B5", "D5"];
+            break;
+          case "6":
+            chordArray = ["A4", "C5", "E5"];
+            break;
+          case "7":
+            chordArray = ["B4", "D5", "F5"];
+            break;
+
+          default:
+            break;
+        }
+        return chordArray;
+      }
+
+      // define calling method
+      const getData = async (url) => {
+        try {
+          const response = await fetch(url);
+          const json = await response.json();
+          const randomChordProgression =
+            json[Math.floor(Math.random() * json.length)];
+
+          // get the numeric value of the random progression for the selected mood
+          this.progression = randomChordProgression.child_path.split(",");
+
+          // initialise polysynth
+          const polySynth = new Tone.PolySynth().toDestination();
+          const synthOptions = {
+            oscillator: {
+              type: this.synth.oscillator.type,
+            },
+            envelope: {
+              attack: this.synth.envelope.attack,
+              delay: this.synth.envelope.delay,
+              sustain: this.synth.envelope.sustain,
+              release: this.synth.envelope.release,
+            },
+          };
+          polySynth.set(synthOptions);
+
+          // initialise current time
+          const now = Tone.now();
+
+          // play the received four chords in a loop
+          for (let i = 0; i < 4; i++) {
+            polySynth.triggerAttackRelease(
+              generateChordArray(this.progression[i]),
+              "8n",
+              now + i
+            );
+          }
+
+          // force update to reflect changes
+          this.$forceUpdate();
+          console.log(this.progression);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      // make API call based on valence and energy
+      getData(modifiedURL);
     },
   },
 };

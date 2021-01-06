@@ -87,9 +87,6 @@ import VueCircleSlider from "../../node_modules/vue-circle-slider/src/components
 export default {
   name: "Controls",
   components: { VueCircleSlider },
-  computed: {
-    dynamicCustomAttack: {},
-  },
   data: () => ({
     customAttack: 10,
     customDecay: 75,

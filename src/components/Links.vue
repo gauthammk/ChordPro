@@ -29,7 +29,9 @@
             aria-label="close"
             @click="isGuideActive = !isGuideActive"
           ></button>
-          <strong>Hey there! here's a quick guide on using this synth. </strong>
+          <strong>
+            Hey there! here's a quick guide on using this project.
+          </strong>
           <br /><br />
           1. Click on the keys or use your keyboard to play sounds. The keys are
           mapped as follows:
@@ -46,8 +48,12 @@
           click
           <a href="https://en.wikipedia.org/wiki/Envelope_(music)">here</a>.
           <br />
-          <br />If you found this project interesting, please give us a
-          <a href="">star</a> on <strong>Github</strong>. Have fun!
+          4. Choose a mood from the 4 given options to get chord progression
+          suggestions. The chord are mapped according to the roman numeral chord
+          notation in a particular key.
+          <br />
+          <br />
+          Have fun!
         </div>
       </div>
     </div>

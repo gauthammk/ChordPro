@@ -39,7 +39,6 @@ export default {
 }
 .key {
   display: inline-block;
-  /* cursor: pointer; */
   padding: 10%;
   border-radius: 4px;
   box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
