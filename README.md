@@ -6,11 +6,11 @@
   <img src="Screenshot.png">
 </p>
 
-<!-- ## Live Demo
+## Live Demo
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cc940052-15e2-408c-bf93-61689cf8899c/deploy-status)](https://app.netlify.com/sites/virtual-synth/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/68379740-d58f-4391-84ab-372d18accf47/deploy-status)](https://app.netlify.com/sites/chord-progression-generator/deploys)
 
-Access the live demo here: https://virtual-synth.netlify.app
+Access the live demo here: https://chord-progression-generator.netlify.app/
 
 ## Getting Started
 
@@ -31,4 +31,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. -->
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
