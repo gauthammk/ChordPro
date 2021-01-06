@@ -9,7 +9,10 @@
         <span class="custom-text-dark custom-regular-text">Guide</span>
       </a>
       <!-- Github button -->
-      <a class="button" href="https://github.com/gauthammk/Virtual-Synth">
+      <a
+        class="button"
+        href="https://github.com/gauthammk/Chord-Progression-Generator"
+      >
         <span class="is-large mr-2">
           <i class="fab fa-github custom-text-dark"></i>
         </span>
