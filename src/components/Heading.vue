@@ -1,10 +1,10 @@
 <template>
   <div class="container has-text-centered">
     <h1 class="title custom-text-dark custom-heading">
-      Chord Progression Generator
+      ChordPro
     </h1>
     <h2 class="subtitle custom-text-dark custom-regular-text">
-      The fastest way to start creating music
+      The automatic chord progression generator
     </h2>
   </div>
 </template>
