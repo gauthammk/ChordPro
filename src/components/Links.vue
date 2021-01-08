@@ -66,7 +66,7 @@
 <script>
 export default {
   name: "Info",
-  data: function () {
+  data: function() {
     return {
       isGuideActive: true,
     };
