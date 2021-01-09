@@ -52,11 +52,11 @@ export default {
 <style scoped>
 .button {
   border: none;
-  box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
+  box-shadow: -0.3rem 0.3rem 0 0 #ece8d9;
 }
 .button:focus {
   border: none;
-  box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
+  box-shadow: -0.3rem 0.3rem 0 0 #ece8d9;
 }
 .button:active {
   border: none;

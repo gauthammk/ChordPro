@@ -17,7 +17,7 @@ export default {
 
 <style>
 .custom-text-dark {
-  color: #272343;
+  color: #494949;
   font-family: "Montserrat Alternates";
 }
 .custom-heading {

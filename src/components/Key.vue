@@ -26,7 +26,7 @@ export default {
 .black-key {
   width: 35px;
   height: 140px;
-  background-color: #272343;
+  background-color: #494949;
   z-index: 1;
   position: absolute;
   margin-top: -234px;
@@ -35,13 +35,13 @@ export default {
 .white-key {
   width: 55px;
   height: 234px;
-  background-color: #ffffff;
+  background-color: #fffdf6;
 }
 .key {
   display: inline-block;
   padding: 10%;
   border-radius: 4px;
-  box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
+  box-shadow: -0.3rem 0.3rem 0 0 #ece8d9;
 }
 .key:active {
   box-shadow: none;
@@ -51,7 +51,7 @@ export default {
   .black-key {
     width: 25px;
     height: 100px;
-    background-color: #272343;
+    background-color: #494949;
     z-index: 1;
     position: absolute;
     margin-top: -169px;
@@ -60,7 +60,7 @@ export default {
   .white-key {
     width: 40px;
     height: 170px;
-    background-color: #ffffff;
+    background-color: #fffdf6;
   }
 }
 </style>

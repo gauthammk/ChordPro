@@ -22,6 +22,6 @@ export default {
 <style>
 .section {
   min-height: 100vh !important;
-  background-color: #e3f6f5;
+  background-color: #faf6e9;
 }
 </style>

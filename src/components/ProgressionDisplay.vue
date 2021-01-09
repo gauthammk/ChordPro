@@ -56,9 +56,9 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
-  box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
+  box-shadow: -0.3rem 0.3rem 0 0 #ece8d9;
   border: none;
-  background-color: #ffffff;
+  background-color: #fffdf6;
 }
 @media only screen and (max-width: 480px),
   only screen and (max-device-width: 480px) {
@@ -67,10 +67,10 @@ export default {
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
+    box-shadow: -0.3rem 0.3rem 0 0 #ece8d9;
     width: 40px;
     height: 29px;
-    background-color: #ffffff;
+    background-color: #fffdf6;
   }
 }
 </style>

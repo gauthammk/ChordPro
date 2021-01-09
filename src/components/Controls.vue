@@ -9,9 +9,9 @@
           :progress-width="6"
           :knob-radius="6"
           :side="60"
-          circle-color="#bae8e8"
-          progress-color="#272343"
-          knob-color="#272343"
+          circle-color="#ece8d9"
+          progress-color="#494949"
+          knob-color="#494949"
         />
       </div>
       <div @mouseup="decayChange">
@@ -22,9 +22,9 @@
           :progress-width="6"
           :knob-radius="6"
           :side="60"
-          circle-color="#bae8e8"
-          progress-color="#272343"
-          knob-color="#272343"
+          circle-color="#ece8d9"
+          progress-color="#494949"
+          knob-color="#494949"
         />
       </div>
       <div @mouseup="sustainChange">
@@ -35,9 +35,9 @@
           :progress-width="6"
           :knob-radius="6"
           :side="60"
-          circle-color="#bae8e8"
-          progress-color="#272343"
-          knob-color="#272343"
+          circle-color="#ece8d9"
+          progress-color="#494949"
+          knob-color="#494949"
         />
       </div>
       <div @mouseup="releaseChange">
@@ -50,9 +50,9 @@
           :progress-width="6"
           :knob-radius="6"
           :side="60"
-          circle-color="#bae8e8"
-          progress-color="#272343"
-          knob-color="#272343"
+          circle-color="#ece8d9"
+          progress-color="#494949"
+          knob-color="#494949"
         />
       </div>
     </div>
@@ -130,11 +130,11 @@ export default {
 <style scoped>
 .button {
   border: none;
-  box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
+  box-shadow: -0.3rem 0.3rem 0 0 #ece8d9;
 }
 .button:focus {
   border: none;
-  box-shadow: -0.3rem 0.3rem 0 0 #bae8e8;
+  box-shadow: -0.3rem 0.3rem 0 0 #ece8d9;
 }
 .button:active {
   border: none;
