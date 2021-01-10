@@ -285,6 +285,8 @@ export default {
           console.log(this.progression);
         } catch (error) {
           console.log(error);
+
+          // set progression as NA so that an error message can be displayed.
           this.progression = "NA";
         }
       };
