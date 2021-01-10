@@ -6,6 +6,11 @@
       v-if="progression == null"
       >Select a mood above</span
     >
+    <span
+      class="custom-text-dark custom-regular-text"
+      v-if="progression == 'NA'"
+      >Server unreachable :/ Please try again later.</span
+    >
     <span class="custom-text-dark custom-regular-text" v-else
       >Here's a progression for you:
       <strong>{{ convertToRoman(progression) }}</strong></span

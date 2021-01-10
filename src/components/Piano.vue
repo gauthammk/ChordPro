@@ -285,6 +285,7 @@ export default {
           console.log(this.progression);
         } catch (error) {
           console.log(error);
+          this.progression = "NA";
         }
       };
 
